@@ -34,4 +34,42 @@ func main() {
 	var zeroBool bool     //Valor false
 
 	fmt.Println(zeroBool, zeroFloat, zeroString, zeroInt)
+
+	//Operaciones artimeticas
+	var a int = 10
+	var b int = 50
+
+	//Suma
+	resultado := a + b
+	fmt.Println(resultado)
+
+	//Resta
+	resultado = a - b
+	fmt.Println(resultado)
+
+	//Multiplicacion
+	resultado = a * b
+	fmt.Println(resultado)
+
+	//Division
+	resultado = a / b
+	fmt.Println(resultado)
+
+	//Residuo o Modulo
+	resultado = a % b
+	fmt.Println(resultado)
+
+	//Area del trapecio
+	var baseMayor float64 = 9.5
+	var baseMenor float64 = 3.5
+	var alturaTrapecio float64 = 4
+
+	var areaTrapecio float64 = (baseMayor + baseMenor) / 2 * alturaTrapecio
+	fmt.Println("Area de Trapecio:", areaTrapecio)
+
+	//Area del circulo
+	var radio float64 = 10
+
+	var areaCirculo = (3.1416) * radio * radio
+	fmt.Println("Area del circulo:", areaCirculo)
 }
