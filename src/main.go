@@ -72,4 +72,64 @@ func main() {
 
 	var areaCirculo = (3.1416) * radio * radio
 	fmt.Println("Area del circulo:", areaCirculo)
+
+	/* Uso de libreria fmt */
+
+	//printf
+	var nombre string = "Cesar"
+	var edad int = 21
+
+	fmt.Printf("%s tiene la edad de %d\n", nombre, edad)
+	fmt.Printf("%v tiene la edad de %v\n", nombre, edad) //Se usa %v cuando no se sabe el tipo de dato a imprimir
+
+	//Sprintf
+	var stringPrint string
+	stringPrint = fmt.Sprintf("%s tiene la edad de %d", nombre, edad)
+
+	fmt.Println(stringPrint)
+
+	//Saber el tipo de dato %T
+	fmt.Printf("El tipo de dato de nombre es: %T\n", nombre)
+	fmt.Printf("El tipo de dato de edad es: %T\n", edad)
+
+	/* Uso de funciones */
+	funcionSimple()
+	funcionConParametros(5, 10, "Hola")
+	funcionConParametrosAlt(10, 40, 45, "Hoola", "Que tal")
+	returnFuncion := funcionConParametrosYReturnSimple(5, 10, "Cesar")
+	fmt.Println(returnFuncion)
+
+	return1, return2 := funcionConParametrosYReturnDoble(30, 50, "Hooola")
+	fmt.Println("Doble return:", return1, return2)
+
+	returnSolo, _ := funcionConParametrosYReturnDoble(50, 47, "Hola")
+	fmt.Println("Return doble y solo agarras un return", returnSolo)
+
+	_, returnSolo2 := funcionConParametrosYReturnDoble(50, 47, "Hola")
+	fmt.Println("Return doble y solo agarras un return", returnSolo2)
+
+}
+
+func funcionSimple() {
+	fmt.Println("Este es el uso de una funcion simple")
+}
+
+func funcionConParametros(a int, b int, c string) {
+	fmt.Println("Esta es funcion con parametros", a, b, c)
+}
+
+func funcionConParametrosAlt(a, b, f int, c, r string) {
+	fmt.Println("Esta es funcion con parametros", a, b, c)
+}
+
+func funcionConParametrosYReturnSimple(a int, b int, c string) int {
+	fmt.Println("Esta es funcion con parametros", a, b, c)
+	fmt.Println("Se realiza la suma de a y b")
+	return a + b
+}
+
+func funcionConParametrosYReturnDoble(a int, b int, c string) (return1, return2 int) {
+	fmt.Println("Esta es funcion con parametros", a, b, c)
+	fmt.Println("Se realiza la suma de a y b")
+	return a, a + b
 }
