@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	fmt.Println("Hola Mundo")
@@ -94,8 +97,11 @@ func main() {
 
 	/* Uso de funciones */
 	funcionSimple()
+
 	funcionConParametros(5, 10, "Hola")
+
 	funcionConParametrosAlt(10, 40, 45, "Hoola", "Que tal")
+
 	returnFuncion := funcionConParametrosYReturnSimple(5, 10, "Cesar")
 	fmt.Println(returnFuncion)
 
@@ -108,28 +114,55 @@ func main() {
 	_, returnSolo2 := funcionConParametrosYReturnDoble(50, 47, "Hola")
 	fmt.Println("Return doble y solo agarras un return", returnSolo2)
 
+	trianguloArea := areaDeTriangulo(5, 10)
+	circuloArea := areaDeCirculo(10)
+	trapecioArea := areaDeTrapecio(5, 10, 15)
+
+	fmt.Println("Area de Triangulo de 5 y 10:", trianguloArea)
+	fmt.Println("Area de Circulo de radio 10:", circuloArea)
+	fmt.Println("Area de Trapecio:", trapecioArea)
+
 }
 
+/* Funcion simple sin parametros ni return */
 func funcionSimple() {
 	fmt.Println("Este es el uso de una funcion simple")
 }
 
+/* Funcion con parametros declarados con su tipo en cada uno */
 func funcionConParametros(a int, b int, c string) {
 	fmt.Println("Esta es funcion con parametros", a, b, c)
 }
 
+/* Funcion con parametros declarados con su tipo en uno por cada tipo */
 func funcionConParametrosAlt(a, b, f int, c, r string) {
-	fmt.Println("Esta es funcion con parametros", a, b, c)
+	fmt.Println("Esta es funcion con parametros simplificado", a, b, c)
 }
 
+/* Funcion con parametros y un return */
 func funcionConParametrosYReturnSimple(a int, b int, c string) int {
-	fmt.Println("Esta es funcion con parametros", a, b, c)
-	fmt.Println("Se realiza la suma de a y b")
+	fmt.Println("Esta es funcion con parametros y un return simple", a, b, c)
 	return a + b
 }
 
+/* Funcion con parametros y doble return  */
 func funcionConParametrosYReturnDoble(a int, b int, c string) (return1, return2 int) {
 	fmt.Println("Esta es funcion con parametros", a, b, c)
 	fmt.Println("Se realiza la suma de a y b")
 	return a, a + b
+}
+
+func areaDeTriangulo(base, altura float64) float64 {
+	area := base * altura / 2
+	return area
+}
+
+func areaDeCirculo(radio float64) float64 {
+	area := math.Pow(radio, 2) * math.Pi
+	return area
+}
+
+func areaDeTrapecio(baseMenor, baseMayor, altura float64) float64 {
+	area := (baseMayor + baseMenor) / 2 * altura
+	return area
 }
