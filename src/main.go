@@ -1,11 +1,28 @@
 package main
 
+/*
+fmt es el paquete principal en GO
+*/
 import (
 	"fmt"
+	"log"
 	"math"
+	"strconv"
 )
 
+// Todo el código se ejecuta en la funcion main, parecido a c y genera un ejecutable
+// Para compilar y correr al mismo se utiliza "go run src/main.go"
+// Para solo compilar y construir el ejecutable se usa "go build src/main.go"
 func main() {
+	/*
+	   En Go su sintaxis obliga forzasamente a utilizar todas las variables, no puedes declarar
+	   variables y no usarlas ya que te las marcaría como error
+	*/
+
+	/*
+	   En Go no es necesario usar ";", la sintaxis de Go lo borra
+	*/
+
 	fmt.Println("Hola Mundo")
 
 	//Declaracion de constantes
@@ -122,6 +139,48 @@ func main() {
 	fmt.Println("Area de Circulo de radio 10:", circuloArea)
 	fmt.Println("Area de Trapecio:", trapecioArea)
 
+	// Ciclos
+
+	// For i
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	// For while
+	counter := 0
+	fmt.Println("")
+	for counter < 10 {
+
+		fmt.Println(counter)
+		counter++
+	}
+
+	//For invertido
+	counter = 10
+	for counter > 0 {
+		fmt.Println(counter)
+		counter--
+	}
+
+	/*
+		Forma para convertir un texto en int
+	*/
+
+	textoANumero, error := strconv.Atoi("55")
+
+	//Se usa nil para comprobar que no exista ningun error
+	//Este if indica que error debe de ser diferente a nil, un equivalente a error != null
+	if error != nil {
+		//log.Fatal se utiliza para imprimir el error ocurrido y sale del programa
+		log.Fatal(error)
+	}
+
+	fmt.Println("El string convertido a int es: " + strconv.Itoa(textoANumero))
+	fmt.Println("El string convertido a int es:", textoANumero, "jeje")
+
+	fmt.Println("Funcion isEven:", isEven(11))
+
+	fmt.Println("Autorizacion con funcion login: ", login("Cesar", "Jugo"))
 }
 
 /* Funcion simple sin parametros ni return */
@@ -165,4 +224,19 @@ func areaDeCirculo(radio float64) float64 {
 func areaDeTrapecio(baseMenor, baseMayor, altura float64) float64 {
 	area := (baseMayor + baseMenor) / 2 * altura
 	return area
+}
+
+func isEven(numero int) bool {
+	return numero%2 == 0
+}
+
+func login(user, password string) string {
+	userAuth := "Cesar"
+	passwordAuth := "Jugo"
+
+	if user == userAuth && password == passwordAuth {
+		return "Acceso Autorizado"
+	} else {
+		return "Acceso denegado"
+	}
 }
